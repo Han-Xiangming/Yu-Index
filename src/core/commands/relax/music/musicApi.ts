@@ -8,5 +8,5 @@ export const getSingleMusic = async (keywords: string) => {
   if (!keywords) {
     return null;
   }
-  return await myAxios.post("/music/get", { keywords });
+  return await myAxios.post("/song/url", { keywords });
 };
