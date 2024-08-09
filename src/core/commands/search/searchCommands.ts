@@ -14,7 +14,8 @@ import gengCommand from "./gengCommand";
 import duckduckgoCommand from "./duckduckgoCommand";
 import fsearchCommand from "./fsearchCommand";
 import sogouCommand from "./sogouCommand";
-import mdnCommand from "./mdnCommand"
+import mdnCommand from "./mdnCommand";
+import stackoverflowCommand from "./stackoverflowCommand";
 
 /**
  * 搜索源
@@ -29,23 +30,24 @@ const fromDict: Record<string, CommandType> = {
   douyin: douyinCommand,
   duckduckgo: duckduckgoCommand,
   fsearch: fsearchCommand,
+  geng: gengCommand,
   github: githubCommand,
   google: googleCommand,
+  mdn: mdnCommand,
   sogou: sogouCommand,
+  stackoverflow: stackoverflowCommand,
   wangyiyun: wangyiyunCommand,
   zhihu: zhihuCommand,
-  geng: gengCommand,
-  mdn: mdnCommand
 };
 
 /**
  * 搜索命令
- * @author yupi
+ * @author Han-Xiangming
  */
 const searchCommand: CommandType = {
   func: "search",
   name: "网页搜索",
-  alias: ["s", "sousuo", "sou", "query"],
+  alias: ["s", "sousuo", "sou", "query",'sch'],
   desc: "支持从不同平台快捷搜索内容",
   params: [
     {
@@ -60,7 +62,7 @@ const searchCommand: CommandType = {
       key: "from",
       alias: ["f"],
       type: "string",
-      defaultValue: "baidu",
+      defaultValue: "bing",
     },
     {
       key: "self",
@@ -70,9 +72,9 @@ const searchCommand: CommandType = {
       defaultValue: false,
     },
   ],
-  // 默认使用百度搜索
+  // 默认使用必应搜索
   action: (options, terminal) => {
-    const { from = "baidu" } = options;
+    const { from = "bing" } = options;
     // 执行不同搜索源的搜索方法
     const fromObj = fromDict[from];
     if (!fromObj) {
