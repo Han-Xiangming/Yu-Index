@@ -5,7 +5,7 @@ const myAxios = axios.create({
   baseURL:
     // @ts-ignore
     process.env.NODE_ENV === "production"
-      ? "https://yuindex-server-974538-1256524210.ap-shanghai.run.tcloudbase.com/api"
+      ? "netease-cloud-music-api-nine-gilt-25.vercel.app"
       : "http://localhost:7345/api",
 });
 
